@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body class="column gap15">
+<body class="column gap1">
     <header>
         <div class="row">
             <div id="logoContainer">
@@ -46,7 +46,7 @@
             <div class="category">TÜM KATEGORİLER</div>
         </div>
     </header>
-    <div class="column container gap15" id="container">
+    <div class="column container gap1" id="container">
         <div class="banner banner-row">
             <img src="img/banner-row.png" alt="">
         </div>
@@ -59,16 +59,21 @@
                     <img src="img/slider-arrow-desktop.svg" alt="">
                 </div>
                 <div class="column">
-                    <img src="img/slider/slider1.jpeg" alt="">
-                    <div class="row pagination">
-                        <div class="page active">
-                            1
+                    <div id="slider-content"></div>
+
+                    <div class="row pagination" id="pagination">
+
+                    </div>
+                    <div class="exchangeRates row">
+                        <div class="exchangeRate row">Dolar <div class="price redPrice">19,00</div>
                         </div>
-                        <div class="page">
-                            2
+                        <div class="exchangeRate row">Euro <div class="price greenPrice">21,00</div>
                         </div>
-                        <div class="page">
-                            3
+                        <div class="exchangeRate row">Altın <div class="price greenPrice">1250,59</div>
+                        </div>
+                        <div class="exchangeRate row">Bitcoin <div class="price redPrice">30.000,97</div>
+                        </div>
+                        <div class="exchangeRate row">Borsa <div class="price greenPrice">5.5012</div>
                         </div>
                     </div>
 
@@ -85,19 +90,70 @@
             </div>
 
         </div>
+
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        const $sliderContainer = $('.slider .column #slider-content');
+        const $paginationContainer = $('#pagination');
+
+        for (let i = 1; i <= 15; i++) {
+            $('<img>', {
+                src: `img/slider/slider${i}.jpeg`,
+                alt: `slider image ${i}`,
+                class: 'slider-image'
+            }).appendTo($sliderContainer);
+
+            $('<div>', {
+                text: i,
+                class: `page ${i == 1 ? 'active' : ''}`
+            }).appendTo($paginationContainer);
+
+        }
+
+        const sliderImages = document.querySelectorAll('.slider .column img');
         const pages = document.querySelectorAll('.pagination .page');
+        let currentIndex = 0;
+
+        function updateSlider(newIndex) {
+            sliderImages.forEach(img => img.style.display = 'none');
+            pages.forEach(page => page.classList.remove('active'));
+            sliderImages.forEach(slider => slider.classList.remove('active-img'));
+
+            sliderImages[newIndex].style.display = 'block';
+            pages[newIndex].classList.add('active');
+            sliderImages[newIndex].classList.add('active-img');
+
+            currentIndex = newIndex;
+        }
+
+
+
+        document.querySelector('.next').addEventListener('click', function () {
+            let newIndex = (currentIndex + 1) % sliderImages.length;
+            updateSlider(newIndex);
+        });
+
+        document.querySelector('.back').addEventListener('click', function () {
+            let newIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+            updateSlider(newIndex);
+        });
 
         pages.forEach((page, index) => {
+            page.addEventListener('click', function () {
+                updateSlider(index);
+            });
             page.addEventListener('animationend', function () {
-                this.classList.remove('active');
-                const nextIndex = (index + 1) % pages.length;
-                pages[nextIndex].classList.add('active');
+                let newIndex = (index + 1) % sliderImages.length;
+                updateSlider(newIndex);
             });
         });
+
+        updateSlider(0);
     });
 
 </script>

@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -8,8 +12,17 @@
     flex-direction: column;
 }
 
+.column-rev {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .gap15 {
     gap: 1.5rem;
+}
+
+.gap1 {
+    gap: 1rem;
 }
 
 header .row:nth-child(1) {
@@ -26,7 +39,7 @@ header .row:nth-child(1) #logoContainer {
 }
 
 header .row:nth-child(1) #logoContainer img {
-    width: 300px;
+    width: 200px;
 }
 
 header .row:nth-child(1) #links {
@@ -66,6 +79,11 @@ header .row:nth-child(2) div:hover {
 
 .banner-row {
     text-align: center;
+}
+
+.banner-row img {
+    height: 150px;
+
 }
 
 .slider {
@@ -110,13 +128,20 @@ header .row:nth-child(2) div:hover {
     padding: .5rem 0;
     flex: 1;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.pagination .page:hover {
+    background-color: #FF0000;
+    color: white;
 }
 
 .pagination .active {
     color: red;
 }
 
-/* Animasyon tanımı */
 @keyframes borderFill {
     from {
         width: 0;
@@ -141,4 +166,56 @@ header .row:nth-child(2) div:hover {
     background: red;
     width: 0;
     animation: borderFill 5s ease-out forwards;
+}
+
+.pagination .active:hover::after {
+    animation-play-state: paused;
+}
+
+#slider-content:hover {
+    cursor: pointer;
+}
+
+.exchangeRates {
+    justify-content: space-evenly;
+    padding: .5rem 0;
+
+    background-color: white;
+    margin-top: 1rem;
+    border-left: green 5px solid;
+}
+
+.exchangeRate {
+    gap: .4rem
+}
+
+.active-img {
+    z-index: 9;
+}
+
+.price::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 9px;
+    margin-right: 4px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.redPrice {
+    color: #fb0b1c;
+}
+
+.redPrice::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M6 8.5L0 0.5H12L6 8.5Z" fill="%23FB0D1B"/></svg>');
+}
+
+.greenPrice {
+    color: #41b87f;
+}
+
+.greenPrice::before {
+    transform: rotate(180deg);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M6 8.5L0 0.5H12L6 8.5Z" fill="%2341B87F"/></svg>');
 }
