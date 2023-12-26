@@ -50,7 +50,7 @@
         <div class="banner banner-row">
             <img src="img/banner-row.png" alt="">
         </div>
-        <div class="content row">
+        <div class="content row gap1">
             <div class="banner">
                 <img src="img/banner.png" alt="">
             </div>
@@ -76,6 +76,27 @@
                         <div class="exchangeRate row">Borsa <div class="price greenPrice">5.5012</div>
                         </div>
                     </div>
+                    <div class="card-container row">
+                        <div class="card">
+                            <div class="card-description">
+
+                                <p>3. kez yurt dışına çıkıyor! Avrupa'nın köklü kulübü Fatih Terim'i resmen açıkladı</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="img/fatih-terim.jpeg" alt="Description Image">
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-description">
+
+                                <p>Hasan Can Kaya'nın dizisi mahkemelik oldu! Şüphelinin hapsi isteniyor</p>
+                            </div>
+                            <div class="card-image">
+                                <img src="img/hasan.can.jpeg" alt="Description Image">
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
                 <div class="next arrow">
@@ -115,7 +136,7 @@
 
         }
 
-        const sliderImages = document.querySelectorAll('.slider .column img');
+        const sliderImages = document.querySelectorAll('.slider .column img.slider-image');
         const pages = document.querySelectorAll('.pagination .page');
         let currentIndex = 0;
 

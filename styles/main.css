@@ -1,5 +1,8 @@
 body {
     margin: 0;
+
+    padding-bottom: 5rem;
+
 }
 
 .row {
@@ -218,4 +221,65 @@ header .row:nth-child(2) div:hover {
 .greenPrice::before {
     transform: rotate(180deg);
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M6 8.5L0 0.5H12L6 8.5Z" fill="%2341B87F"/></svg>');
+}
+
+.card-container {
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: .5rem;
+    margin: 1rem 0
+}
+
+.card {
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+    width: calc(50% - 10px);
+
+
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+
+}
+
+.card-description,
+.card-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-description {
+
+    padding: .5rem;
+    height: 100%;
+}
+
+.card-description p {
+    font-size: 1rem;
+    text-align: left;
+
+
+    text-overflow: ellipsis;
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0;
+    line-height: 130%;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.slider-image {
+    width: 100%;
 }
