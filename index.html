@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <title>Document</title>
+</head>
+
+<body class="column gap15">
+    <header>
+        <div class="row">
+            <div id="logoContainer">
+                <img src="img/logo.svg" alt="logo" />
+            </div>
+            <div id="links">
+                <a href="#">HABER</a>
+
+                <a href="#">SON DAKİKA</a>
+                <a href="#">SPOR</a>
+                <a href="#">EKONOMİ</a>
+                <a href="#">MAGAZİN</a>
+            </div>
+
+            <div id="inputs">
+                <input type="text" name="search" id="search" placeholder="Haber Ara">
+                <button class="login">
+                    Üye Girişi
+                </button>
+            </div>
+        </div>
+        <div class="row" id="categories">
+            <div class="category">DÜNYA</div>
+            <div class="category">FİNANS</div>
+            <div class="category">POLİTİKA</div>
+            <div class="category">3.SAYFA</div>
+            <div class="category">TEKNOLOJİ</div>
+            <div class="category">GÜNCEL</div>
+            <div class="category">YAŞAM</div>
+            <div class="category">EĞİTİM</div>
+            <div class="category">SAĞLIK</div>
+            <div class="category">KUPONLAR</div>
+            <div class="category">TÜM KATEGORİLER</div>
+        </div>
+    </header>
+    <div class="column container gap15" id="container">
+        <div class="banner banner-row">
+            <img src="img/banner-row.png" alt="">
+        </div>
+        <div class="content row">
+            <div class="banner">
+                <img src="img/banner.png" alt="">
+            </div>
+            <div class="slider row">
+                <div class="back arrow">
+                    <img src="img/slider-arrow-desktop.svg" alt="">
+                </div>
+                <div class="column">
+                    <img src="img/slider/slider1.jpeg" alt="">
+                    <div class="row pagination">
+                        <div class="page active">
+                            1
+                        </div>
+                        <div class="page">
+                            2
+                        </div>
+                        <div class="page">
+                            3
+                        </div>
+                    </div>
+
+                </div>
+                <div class="next arrow">
+                    <img src="img/slider-arrow-desktop.svg" alt="">
+                </div>
+            </div>
+            <div class="banner">
+                <img src="img/banner2.png" alt="">
+            </div>
+            <div class="banner">
+                <img src="img/banner.png" alt="">
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const pages = document.querySelectorAll('.pagination .page');
+
+        pages.forEach((page, index) => {
+            page.addEventListener('animationend', function () {
+                this.classList.remove('active');
+                const nextIndex = (index + 1) % pages.length;
+                pages[nextIndex].classList.add('active');
+            });
+        });
+    });
+
+</script>
+
+</html>

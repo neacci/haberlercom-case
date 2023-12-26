@@ -1,0 +1,144 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap15 {
+    gap: 1.5rem;
+}
+
+header .row:nth-child(1) {
+    background-color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header .row:nth-child(1) #logoContainer {
+    height: 100%;
+    display: flex;
+}
+
+header .row:nth-child(1) #logoContainer img {
+    width: 300px;
+}
+
+header .row:nth-child(1) #links {
+    display: flex;
+    gap: 2rem;
+}
+
+header .row:nth-child(1) #links a {
+    color: white
+}
+
+
+header .row:nth-child(1) #links a:visited {
+    color: white;
+}
+
+header .row:nth-child(2) {
+    background-color: #888888;
+    justify-content: space-evenly;
+    padding: 0rem 5rem;
+    cursor: pointer;
+}
+
+header .row:nth-child(2) div {
+    color: white;
+    padding: 1rem .5rem;
+}
+
+header .row:nth-child(2) div:hover {
+    background-color: #999999;
+}
+
+.content {
+    justify-content: space-between;
+    background-color: #f4f4f4;
+}
+
+.banner-row {
+    text-align: center;
+}
+
+.slider {
+    align-items: flex-start;
+    position: relative;
+    height: fit-content;
+}
+
+.back {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.next img {
+    transform: rotate(180deg);
+}
+
+.arrow {
+    position: absolute;
+    top: calc(50% - 20px);
+    transition: transform .1s linear;
+    transform: scale(1);
+}
+
+.arrow:hover {
+    opacity: .8;
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.pagination {
+    justify-content: space-between;
+    background: white;
+
+}
+
+.pagination .page {
+    color: black;
+    padding: .5rem 0;
+    flex: 1;
+    text-align: center;
+}
+
+.pagination .active {
+    color: red;
+}
+
+/* Animasyon tanımı */
+@keyframes borderFill {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.pagination .active {
+    color: red;
+    position: relative;
+}
+
+.pagination .active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 5px;
+    background: red;
+    width: 0;
+    animation: borderFill 5s ease-out forwards;
+}
