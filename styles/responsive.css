@@ -1,0 +1,51 @@
+@media screen and (max-width: 768px) {
+
+
+    .content {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .banner-row img,
+    .slider-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .banner-col {
+        display: none;
+    }
+
+    header,
+    .banner {
+        display: none;
+
+    }
+
+    .exchangeRates {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+    }
+
+    .exchangeRate {
+        display: flex;
+        width: 50%;
+        text-align: left;
+        justify-content: space-between;
+    }
+
+    .headerMobile {
+        display: inline;
+    }
+
+    .arrow {
+        top: calc(25% - 20px)
+    }
+}
